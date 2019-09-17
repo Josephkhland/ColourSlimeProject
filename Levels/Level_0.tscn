@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/Level_0.gd" type="Script" id=1]
 [ext_resource path="res://Doorway.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Orbs_Placement.gd" type="Script" id=7]
 [ext_resource path="res://collectible.tscn" type="PackedScene" id=8]
 [ext_resource path="res://RedObstacle.gd" type="Script" id=9]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -30,7 +31,7 @@ position = Vector2( 1040, 860 )
 script = ExtResource( 1 )
 
 [node name="Doorway" parent="." instance=ExtResource( 2 )]
-position = Vector2( 490, -1760 )
+position = Vector2( 630, -1761.82 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -110, 50 )
@@ -454,6 +455,9 @@ polygon = PoolVector2Array( -140, -1920, -10, -1920, -10, -1890, -140, -1890 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Checkpoint" parent="." instance=ExtResource( 10 )]
+position = Vector2( 340, -1800 )
 [connection signal="orb_fired" from="." to="collectible" method="_on_Node2D_orb_fired"]
 [connection signal="colourChanged" from="player" to="HUD" method="_on_player_colourChanged"]
 [connection signal="shoot_orb" from="player" to="." method="_on_player_shoot_orb"]

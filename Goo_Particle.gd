@@ -3,6 +3,8 @@ extends KinematicBody2D
 const GRAVITY = 500.0
 const WALK_SPEED = 200
 const jumpSpeed = 300
+const BLUE_BONUS_TO_JUMP = 20
+const GREEN_BONUS_TO_SPEED = 30
 var shotBoostSpeed = 200
 var jumped = false
 var onWall = false
@@ -19,6 +21,7 @@ onready var polygon = $Polygon2D
 signal orb_was_taken
 signal shoot_orb(dir,col)
 signal colourChanged(col,counto)
+signal death
 #Function for throwing a hook to one direction and pulling closer to it.
 func hookDo():
     pass
@@ -32,7 +35,6 @@ func colorChanges():
 	emit_signal("colourChanged",colourSelection,colourSCount[colourSelection])
 
 func shoot():
-	print(str("Orb Color: ", my_color))
 	#if orbs_consumed >=1:
 	if true:
 		if colourSelection == 0 && my_color.r >= colourChunk :
@@ -46,7 +48,6 @@ func shoot():
 
 			 
 		else:
-			print("Not Enough Material")
 			return
 		var diriShoot = get_local_mouse_position()
 		diriShoot = diriShoot.normalized()
@@ -57,11 +58,14 @@ func shoot():
 		emit_signal("shoot_orb",diriShoot,colourSelection)
 
 func _ready():
+	print (self.owner)
 	my_color = $Polygon2D.color
 	#orbs_consumed=0
 	colourSelection=0
 	colourSCount = [0,0,0]
 	colorChanges()
+	connect("shoot_orb",self.owner,"_on_player_shoot_orb")
+	connect("colourChanged",self.owner.get_node("HUD"),"_on_player_colourChanged")
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("cycle_modes"):
@@ -82,7 +86,7 @@ func _physics_process(delta):
 	$arrow.look_at(get_global_mouse_position())
 	#Jumping with Space
 	if Input.is_action_pressed("ui_select") && (jumped == false || onWall == true):
-		velocity.y = -jumpSpeed
+		velocity.y = -jumpSpeed - BLUE_BONUS_TO_JUMP*colourSCount[2]
 		jumped = true
 		onWall = false
 		concec_jumps = concec_jumps+1
@@ -90,9 +94,9 @@ func _physics_process(delta):
 		velocity.y += delta * GRAVITY
    #Left and Right Movement
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = -WALK_SPEED
+		velocity.x = -WALK_SPEED -GREEN_BONUS_TO_SPEED*colourSCount[1]
 	elif Input.is_action_pressed("ui_right"):
-		velocity.x =  WALK_SPEED 
+		velocity.x =  WALK_SPEED  +GREEN_BONUS_TO_SPEED*colourSCount[1]
 	else:
 		velocity.x = 0
     #Movement
@@ -112,7 +116,7 @@ func _physics_process(delta):
 			onWall = true
 		velocity.x = -velocity.x
 
-func on_orb_taken(c):
+func on_orb_taken(c,orbName):
 	emit_signal("orb_was_taken")
 	var modificus = 4
 	#$Polygon2D.color = Color(my_color.r + c.r/modificus, my_color.g + c.g/modificus, my_color.b +c.b/modificus, my_color.a)
@@ -120,7 +124,6 @@ func on_orb_taken(c):
 	scale = scale + 0.2*Vector2(1,1)*c.r + 0.2*Vector2(1,1)*c.g + 0.2*Vector2(1,1)*c.b
 	#orbs_consumed= orbs_consumed+1
 	colorChanges()
-	print(my_color)
 
 func arrow_Colour():
 	if colourSelection ==0:
@@ -130,4 +133,15 @@ func arrow_Colour():
 	elif colourSelection == 2:
 		$arrow.color = Color(0,0,float(1),1)
 
-
+func death():
+	velocity = Vector2(0,0)
+	var checkpoints =get_tree().get_nodes_in_group("Checkpoint")
+	for i in checkpoints:
+		if i.active == true:
+			position = i.position
+			$Polygon2D.color = Color(0,0,0,1)
+			colorChanges()
+			connect("death",i,"_on_player_death")
+			emit_signal("death")
+			return
+	get_tree().reload_current_scene()
