@@ -15,6 +15,8 @@ var colourSelection #0 For Red, 1 For Green, 2 For Blue
 var colourSCount
 var colourChunk = 0.25
 var velocity = Vector2()
+var not_stunned = 1
+var timeStunned =0
 onready var polygon = $Polygon2D
 
 
@@ -64,10 +66,16 @@ func _ready():
 	colourSelection=0
 	colourSCount = [0,0,0]
 	colorChanges()
+	not_stunned = 1
 	connect("shoot_orb",self.owner,"_on_player_shoot_orb")
 	connect("colourChanged",self.owner.get_node("HUD"),"_on_player_colourChanged")
 	
 func _physics_process(delta):
+	if not_stunned == 0:
+		timeStunned += delta
+		if timeStunned >0.2:
+			not_stunned = 1
+			timeStunned =0
 	if Input.is_action_just_pressed("cycle_modes"):
 		colourSelection = (colourSelection+1)%3
 		colorChanges()
@@ -98,10 +106,12 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED  +GREEN_BONUS_TO_SPEED*colourSCount[1]
 	else:
-		velocity.x = 0
+		velocity.x = velocity.x -velocity.x/10
     #Movement
 	if Input.is_action_just_pressed("ui_shoot"):
 		shoot()
+	velocity.x = velocity.x*not_stunned
+	velocity = get_floor_velocity()+velocity
 	move_and_slide(velocity, Vector2(0, -1))
     
 	#Checking when landing or when colliding with wall, ceilling.
@@ -133,8 +143,30 @@ func arrow_Colour():
 	elif colourSelection == 2:
 		$arrow.color = Color(0,0,float(1),1)
 
+func damaged():
+	if colourSCount[0] >0:
+		if velocity.x >0:
+			position.x -= 40
+		elif velocity.x <0:
+			position.x +=40
+		not_stunned = 0
+		velocity = -velocity
+		$Polygon2D.color = Color(my_color.r- colourChunk, my_color.g,my_color.b,my_color.a)
+		colorChanges()
+	else:
+		death()
+
+
 func death():
+	var tempLoad = load("res://death_screen.tscn").instance()
+	tempLoad.set_name("death_screen")
+	add_child(tempLoad)
+
+
+func respawn():
+	$Polygon2D.show()
 	velocity = Vector2(0,0)
+	scale = Vector2(2,2)
 	var checkpoints =get_tree().get_nodes_in_group("Checkpoint")
 	for i in checkpoints:
 		if i.active == true:

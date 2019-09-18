@@ -7,6 +7,7 @@ var bullet_power
 var redProgress
 var blueProgress
 var greenProgress
+var loaded = false
 
 signal orb_fired(col)
 # Declare member variables here. Examples:
@@ -20,6 +21,7 @@ func _ready():
 	counter =0
 	bullet_power=200
 	connect("orb_fired",get_node("collectible"),"_on_Node2D_orb_fired")
+	loaded = false
 	
 
 

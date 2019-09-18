@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RedObstacle.gd" type="Script" id=1]
+
+[node name="BlueObstacle2" type="RigidBody2D" groups=[
+"BlueObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.168627, 0.211765, 0.858824, 1 )
+polygon = PoolVector2Array( -720, -1720, -580, -1720, -580, -1680, -720, -1680 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -140, -1920, -10, -1920, -10, -1890, -140, -1890 )
+__meta__ = {
+"_edit_lock_": true
+}

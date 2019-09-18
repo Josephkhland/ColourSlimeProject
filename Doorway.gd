@@ -16,9 +16,14 @@ func _process(delta):
 		
 		var level = get_tree().get_current_scene().filename
 		print(level)
+		level = level.split("_")
+		print(int(level[1].split(".")[0]))
 		var nLevel = int(level[1].split(".")[0]) +1
 		print(nLevel)
-		get_tree().change_scene(str("res://Levels/Level_",nLevel,".tscn"))
+		if nLevel == 1:
+			get_tree().change_scene("res://Levels/Cutscene.tscn")
+		else :
+			get_tree().change_scene(str("res://Levels/Level_",nLevel,".tscn"))
 
 
 func _on_Doorway_body_entered(body):

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Platform.gd" type="Script" id=1]
+[ext_resource path="res://Lightning.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 68.9898, 2.0015 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Platform" type="RigidBody2D" parent="YSort"]
+mode = 1
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="YSort/Platform"]
+color = Color( 0.482353, 0.478431, 0.478431, 1 )
+polygon = PoolVector2Array( 0, -10, 10, -10, 20, 0, 10, 10, 0, 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Platform"]
+
+[node name="Detail1" type="Polygon2D" parent="YSort"]
+color = Color( 0.698039, 0.698039, 0.698039, 1 )
+polygon = PoolVector2Array( 0, 10, 20, 0, 0, 0 )
+
+[node name="Detail2" type="Polygon2D" parent="YSort"]
+color = Color( 0.870588, 0.870588, 0.870588, 1 )
+polygon = PoolVector2Array( 20, 0, 0, -10, 0, 0 )
+
+[node name="Lightning" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="hazard_electric" type="Polygon2D" parent="Lightning"]
+color = Color( 1, 0.984314, 0, 1 )
+polygon = PoolVector2Array( 19.9091, -0.202133, 37.9435, -10.2621, 50.7652, -1.22607, 61.0103, -4.09472, 71.0506, -10.2418, 64.2888, -3.2751, 72.6898, 1.23277, 62.2397, -1.22607, 55.0681, 1.64258, 66.406, 9.98057, 101.125, -7.80848, 127.843, 9.82212, 150.588, -0.2696, 129.35, 12.6839, 100.129, -2.83018, 89.7622, 3.24879, 101.786, 3.2818, 108.343, 11.4779, 99.3272, 5.33083, 95.8485, 5.77682, 88.8772, 14.3466, 92.5654, 6.15044, 83.3448, 7.37987, 69.2513, 15.3952, 37.018, -1.62521, 31.7092, -1.02116, 36.4219, 3.2818, 51.175, 8.81419, 41.7494, 7.78967, 39.2906, 9.01909, 50.3554, 16.3956, 38.0612, 12.0926, 33.5533, 15.9858, 36.0121, 7.78967, 32.7337, 4.71613, 26.7915, -0.611359 )
+
+[node name="detail_light" type="Polygon2D" parent="Lightning"]
+color = Color( 1, 0.984314, 0, 0.258824 )
+polygon = PoolVector2Array( 19.9091, -0.202133, 37.9435, -10.2621, 50.7652, -1.22607, 61.0103, -4.09472, 71.0506, -10.2418, 64.2888, -3.2751, 72.6898, 1.23277, 62.2397, -1.22607, 55.0681, 1.64258, 66.406, 9.98057, 101.125, -7.80848, 127.843, 9.82212, 150.588, -0.2696, 129.35, 12.6839, 100.129, -2.83018, 89.7622, 3.24879, 101.786, 3.2818, 108.343, 11.4779, 99.3272, 5.33083, 95.8485, 5.77682, 88.8772, 14.3466, 92.5654, 6.15044, 83.3448, 7.37987, 69.2513, 15.3952, 37.018, -1.62521, 31.7092, -1.02116, 36.4219, 3.2818, 51.175, 8.81419, 41.7494, 7.78967, 39.2906, 9.01909, 50.3554, 16.3956, 38.0612, 12.0926, 33.5533, 15.9858, 36.0121, 7.78967, 32.7337, 4.71613, 26.7915, -0.611359 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lightning"]
+position = Vector2( 80, 0 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Lightning" to="Lightning" method="_on_Lightning_body_entered"]

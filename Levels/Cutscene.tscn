@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://messages.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menuFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://.import/mini-wakuwaku-maru.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://intro.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 1
+outline_color = Color( 0.301961, 0.0784314, 0.462745, 1 )
+extra_spacing_bottom = 10
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 450.0
+margin_top = 500.0
+margin_right = 570.0
+margin_bottom = 530.0
+custom_fonts/font = ExtResource( 1 )
+text = "GO!"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+margin_left = 90.0
+margin_top = 80.0
+margin_right = 940.0
+margin_bottom = 490.0
+
+[node name="intro" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
+margin_right = 850.0
+margin_bottom = 410.0
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Long ago the earth was ruled by slimes. Slimes of different colours and types. Corrosive slimes, bouncy slimes, sticky slimes, old slimes, slimy slimes and. . .
+. . .[b]young slimes.[/b]
+As you might have already guessed the story follows after the tracks of a young slime, as it takes part within a life threatening ordeal.
+[b]Get ready to face the Slime test!
+A challenge that will test your Slime wit and your Slime skills.
+What Slime will you be in the end?
+.
+.
+.
+Everything about your future as a Slime 
+depends on this test! [/b] 
+[/center]"
+text = "Long ago the earth was ruled by slimes. Slimes of different colours and types. Corrosive slimes, bouncy slimes, sticky slimes, old slimes, slimy slimes and. . .
+. . .young slimes.
+As you might have already guessed the story follows after the tracks of a young slime, as it takes part within a life threatening ordeal.
+Get ready to face the Slime test!
+A challenge that will test your Slime wit and your Slime skills.
+What Slime will you be in the end?
+.
+.
+.
+Everything about your future as a Slime 
+depends on this test!  
+"
+scroll_following = true
+script = ExtResource( 4 )
+[connection signal="pressed" from="Button" to="CanvasLayer/MarginContainer/intro" method="_on_Button_pressed"]

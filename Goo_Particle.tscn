@@ -8,19 +8,33 @@ radius = 9.22402
 [node name="player" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 scale = Vector2( 10, 10 )
 color = Color( 0, 0, 0, 1 )
 skeleton = NodePath("../Skeleton2D")
 polygon = PoolVector2Array( -1, 0, -0.707, -0.707, 0, -1, 0.707, -0.707, 1, 0, 0.707, 0.707, 0, 1, -0.707, 0.707 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="arrow" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( 11, -4, 11, 4, 13, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-[connection signal="orb_was_taken" from="." to="." method="_on_player_orb_was_taken"]
+__meta__ = {
+"_edit_lock_": true
+}

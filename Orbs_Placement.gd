@@ -20,7 +20,7 @@ func _ready():
 		add_child(Collect_instance)
 		Collect_instance.position = pos_curve.get_point_position(i)
 		Collect_instance.connect("orb_taken",self.owner,"_on_orb_collected")
-		get_node(str("collectible_red",i,"/Polygon2D")).color = Color(float(1),0,0,0.25)
+		get_node(str("collectible_red",i,"/Polygon2D")).color = Color(float(1),0,0,0.75)
 	##Spawning Green Orbs
 	pos_curve = $Green.get_curve()
 	total_red = pos_curve.get_point_count()
@@ -30,7 +30,7 @@ func _ready():
 		add_child(Collect_instance)
 		Collect_instance.position = pos_curve.get_point_position(i)
 		Collect_instance.connect("orb_taken",self.owner,"_on_orb_collected")
-		get_node(str("collectible_green",i,"/Polygon2D")).color = Color(0,float(1),0,0.25)
+		get_node(str("collectible_green",i,"/Polygon2D")).color = Color(0,float(1),0,0.75)
 	
 	##Spawning Blue Orbs
 	pos_curve = $Blue.get_curve()
@@ -41,4 +41,4 @@ func _ready():
 		add_child(Collect_instance)
 		Collect_instance.position = pos_curve.get_point_position(i)
 		Collect_instance.connect("orb_taken",self.owner,"_on_orb_collected")
-		get_node(str("collectible_blue",i,"/Polygon2D")).color = Color(0,0,float(1),0.25)
+		get_node(str("collectible_blue",i,"/Polygon2D")).color = Color(0,0,float(1),0.75)

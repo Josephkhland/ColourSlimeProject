@@ -16,7 +16,7 @@ var pl
 var can_absorb = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(self.owner)
+	self.add_to_group("Checkpoint")
 	$Emit.color = Color(1.0,0.75,1.0,0)
 	$textBubble.hide()
 	pl = self.owner.get_node("player")
@@ -56,28 +56,38 @@ func _process(delta):
 		can_absorb = false
 	if can_absorb == true:
 		if Input.is_action_just_pressed("interact"):
-			var all_orbs_to_be_destroyed = get_tree().get_nodes_in_group("shot_Collectibles")
-			for i in  all_orbs_to_be_destroyed:
-				i.hide()
-				i.queue_free()
 			can_absorb = false
+			var all_orbs_to_be_destroyed = get_tree().get_nodes_in_group("shot_Collectibles")
+			for j in  all_orbs_to_be_destroyed:
+				j.hide()
+				j.free()
 			for i in curRed:
 				scene_instance = collect_spawn.instance()
 				scene_instance.set_name(str("shot_Collectible_red",i))
+				scene_instance.owner = self.owner
 				add_child(scene_instance)
-				get_node(str("shot_Collectible_red",i,"/Polygon2D")).color = Color(float(1),0,0,0.25)
+				
+				get_node(str("shot_Collectible_red",i,"/Polygon2D")).color = Color(float(1),0,0,0.5)
+				print(get_node(str("shot_Collectible_red",i,"/Polygon2D")).color)
+				
 				scene_instance.add_to_group("shot_Collectibles")
 			for i in curGreen:
+				
 				scene_instance = collect_spawn.instance()
 				scene_instance.set_name(str("shot_Collectible_green",i))
+				scene_instance.owner = self.owner
 				add_child(scene_instance)
-				get_node(str("shot_Collectible_green",i,"/Polygon2D")).color = Color(0,float(1),0,0.25)
+				get_node(str("shot_Collectible_green",i,"/Polygon2D")).color = Color(0,float(1),0,0.5)
+				
 				scene_instance.add_to_group("shot_Collectibles")
 			for i in curBlue:
+				
 				scene_instance = collect_spawn.instance()
 				scene_instance.set_name(str("shot_Collectible_blue",i))
+				scene_instance.owner = self.owner
 				add_child(scene_instance)
-				get_node(str("shot_Collectible_blue",i,"/Polygon2D")).color = Color(0,0,float(1),0.25)
+				get_node(str("shot_Collectible_blue",i,"/Polygon2D")).color = Color(0,0,float(1),0.5)
+				
 				scene_instance.add_to_group("shot_Collectibles")
 	else:
 		$textBubble.hide()
@@ -89,6 +99,9 @@ func _process(delta):
 func _on_Checkpoint_body_entered(body):
 	if (body.get_name() == "player"):
 		if active == false:
+			var checkpoints =get_tree().get_nodes_in_group("Checkpoint")
+			for i in checkpoints:
+				connect("checkpoint_activating",i,"_on_Checkpoint_checkpoint_activating")
 			emit_signal("checkpoint_activating",position)
 			active = true
 		else:
