@@ -30,6 +30,7 @@ func _ready():
 func _process(delta):
 	timePassed = timePassed + delta
 	if active == true:
+		$Sprite.playing = true
 		check_resource()
 		if timePassed < 1:
 			$Emit.scale = $Emit.scale + 0.01*Vector2(1,1)
@@ -49,6 +50,7 @@ func _process(delta):
 			else:
 				fading = false
 	else:
+		$Sprite.playing = false
 		timePassed=0
 		$Emit.color.a = 0
 		$Emit.scale = Vector2(1,1)

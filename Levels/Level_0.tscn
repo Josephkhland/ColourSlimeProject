@@ -15,17 +15,17 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -860, -300, 0, 0, 0, 0, -5320, -4020, 0, 0, 0, 0, 660, -1030 )
+"points": PoolVector2Array( 0, 0, 0, 0, 190, -230, 0, 0, 0, 0, 80, -240, 0, 0, 0, 0, 20, -240, 0, 0, 0, 0, -100, -240, 0, 0, 0, 0, -1010, -940 )
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -1040, -900, 0, 0, 0, 0, -2080, 90, 0, 0, 0, 0, -2800, -2550 )
+"points": PoolVector2Array( 0, 0, 0, 0, -980, -930, 0, 0, 0, 0, -970, -960, 0, 0, 0, 0, -950, -930 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -2740, -1380, 0, 0, 0, 0, -2990, -1850, 0, 0, 0, 0, -4510, -1310, 0, 0, 0, 0, -880, -2670 )
+"points": PoolVector2Array( 0, 0, 0, 0, -900, -930, 0, 0, 0, 0, -880, -970, 0, 0, 0, 0, -860, -930 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -48,6 +48,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform2"]
+visible = false
 polygon = PoolVector2Array( 1530, 680, 1590, 570, 1580, 650 )
 __meta__ = {
 "_edit_lock_": true
@@ -65,6 +66,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform"]
+visible = false
 polygon = PoolVector2Array( -650, -230, -920, -250, -1530, -70, -880, -150, -660, -80 )
 __meta__ = {
 "_edit_lock_": true
@@ -82,6 +84,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform3"]
+visible = false
 polygon = PoolVector2Array( 720, -670, 490, -590, 850, -590 )
 __meta__ = {
 "_edit_lock_": true
@@ -99,6 +102,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform4"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -116,6 +120,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform5"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -133,6 +138,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform6"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -150,6 +156,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform7"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -167,6 +174,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform8"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -184,6 +192,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform9"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -201,6 +210,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform10"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -218,6 +228,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform11"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -245,6 +256,7 @@ mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform12"]
+visible = false
 polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
 __meta__ = {
 "_edit_lock_": true
@@ -416,7 +428,6 @@ script = ExtResource( 7 )
 curve = SubResource( 1 )
 
 [node name="Green" type="Path2D" parent="Orbs_Placement"]
-position = Vector2( 0, 50 )
 curve = SubResource( 2 )
 
 [node name="Blue" type="Path2D" parent="Orbs_Placement"]

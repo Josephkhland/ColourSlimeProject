@@ -869,16 +869,16 @@ polygon = PoolVector2Array( -30, -10, -100, 10, -100, 10, -30, -20, 20, 0, 90, -
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MovingPlatforms/MovingPlatform"]
 
-[node name="Orbs_Placement" type="Node2D" parent="."]
+[node name="Orbs_Placement_1" type="Node2D" parent="."]
 position = Vector2( 0, -50 )
 script = ExtResource( 11 )
 
-[node name="Red" type="Path2D" parent="Orbs_Placement"]
+[node name="Red" type="Path2D" parent="Orbs_Placement_1"]
 curve = SubResource( 1 )
 
-[node name="Green" type="Path2D" parent="Orbs_Placement"]
+[node name="Green" type="Path2D" parent="Orbs_Placement_1"]
 position = Vector2( 0, 50 )
 curve = SubResource( 2 )
 
-[node name="Blue" type="Path2D" parent="Orbs_Placement"]
+[node name="Blue" type="Path2D" parent="Orbs_Placement_1"]
 curve = SubResource( 3 )
