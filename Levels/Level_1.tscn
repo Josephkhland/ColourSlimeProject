@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Levels/Level_0.gd" type="Script" id=1]
 [ext_resource path="res://Doorway.tscn" type="PackedScene" id=2]
@@ -11,23 +11,25 @@
 [ext_resource path="res://collectible.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/MovingPlatform.gd" type="Script" id=10]
 [ext_resource path="res://Orbs_Placement.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Music/neoslimerave.ogg" type="AudioStream" id=12]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=13]
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, -70, -670, 0, 0, 0, 0, -190, -1270, 0, 0, 0, 0, -270, -1670 )
 }
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -860, -300, 0, 0, 0, 0, -5320, -4020, 0, 0, 0, 0, 660, -1030 )
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -1040, -900, 0, 0, 0, 0, -2080, 90, 0, 0, 0, 0, -2800, -2550 )
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -2740, -1380, 0, 0, 0, 0, -2990, -1850, 0, 0, 0, 0, -4510, -1310, 0, 0, 0, 0, -880, -2670 )
 }
@@ -847,7 +849,7 @@ position = Vector2( 0, -3380 )
 position = Vector2( -3390, -570 )
 
 [node name="Path2D" type="Path2D" parent="MovingPlatforms"]
-curve = SubResource( 4 )
+curve = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -874,11 +876,20 @@ position = Vector2( 0, -50 )
 script = ExtResource( 11 )
 
 [node name="Red" type="Path2D" parent="Orbs_Placement_1"]
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="Green" type="Path2D" parent="Orbs_Placement_1"]
 position = Vector2( 0, 50 )
-curve = SubResource( 2 )
+curve = SubResource( 3 )
 
 [node name="Blue" type="Path2D" parent="Orbs_Placement_1"]
-curve = SubResource( 3 )
+curve = SubResource( 4 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.972549, 0.74902, 1, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 13 )]
