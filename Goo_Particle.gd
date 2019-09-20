@@ -17,6 +17,9 @@ var colourChunk = 0.25
 var velocity = Vector2()
 var not_stunned = 1
 var timeStunned =0
+#var switching_launching = false
+#var switching_air_animations = false
+#var switching_landing = false
 onready var polygon = $Polygon2D
 
 
@@ -71,6 +74,7 @@ func _ready():
 	connect("colourChanged",self.owner.get_node("HUD"),"_on_player_colourChanged")
 	
 func _physics_process(delta):
+	#animation_control()
 	if not_stunned == 0:
 		timeStunned += delta
 		if timeStunned >0.2:
@@ -98,6 +102,7 @@ func _physics_process(delta):
 		jumped = true
 		onWall = false
 		concec_jumps = concec_jumps+1
+		#switching_launching = true
 	else:
 		velocity.y += delta * GRAVITY
    #Left and Right Movement
@@ -177,3 +182,30 @@ func respawn():
 			emit_signal("death")
 			return
 	get_tree().reload_current_scene()
+
+#func animation_control():
+#	if is_on_floor() == false && switching_launching ==true:
+#		if $animation.frame == 5:
+#			switching_launching = false
+#	if is_on_floor() == false && velocity.y <0 && switching_launching == false:
+#		$animation.animation ="on_air_up"
+#	if is_on_floor() == false && velocity.y >0 && $animation.animation == "on_air_up":
+#		switching_air_animations = true
+#		$animation.animation = "air_switch"
+#	if is_on_floor() == false && velocity.y >0 && switching_air_animations == true:
+#		if $animation.frame == 3:
+#			switching_air_animations = false
+#			$animation.animation = "on_air_down"
+#	elif is_on_floor() == false && velocity.y >0 && switching_air_animations == false: 
+#		$animation.animation = "on_air_down"
+#	if is_on_floor() == true && $animation.animation == "on_air_down":
+#		$animation.animation = "Landing"
+#		switching_landing = true
+#	elif is_on_floor() == true && switching_landing == false:
+#		if velocity.x >0:
+#			$animation.flip_h = false
+#		else:
+#			$animation.flip_h = true
+#	if switching_landing == true:
+#		if $animation.frame == 7:
+#			switching_landing = false 

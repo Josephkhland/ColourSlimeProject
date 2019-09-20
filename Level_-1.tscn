@@ -126,6 +126,7 @@ autostart = true
 
 [node name="player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 655.135, 218.175 )
+scale = Vector2( 1, 1 )
 
 [node name="Checkpoint" parent="." groups=[
 "Checkpoint",
