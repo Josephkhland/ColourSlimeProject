@@ -72,9 +72,27 @@ func _ready():
 	not_stunned = 1
 	connect("shoot_orb",self.owner,"_on_player_shoot_orb")
 	connect("colourChanged",self.owner.get_node("HUD"),"_on_player_colourChanged")
+
+func anim():
+	var current = $AnimatedSprite.animation
+	if velocity.x != 0:
+		$AnimatedSprite.play("move")
+	else:
+		$AnimatedSprite.stop()
 	
+	if velocity.y < 0:
+		$AnimatedSprite.play("jump")
+	if velocity.y > 0:
+		$AnimatedSprite.play("fall")
+	
+	if velocity.x < 0:
+		$AnimatedSprite.scale.x = -0.1
+	if velocity.x > 0:
+		$AnimatedSprite.scale.x = 0.1
+
 func _physics_process(delta):
-	#animation_control()
+
+	anim()
 	if not_stunned == 0:
 		timeStunned += delta
 		if timeStunned >0.2:

@@ -1,0 +1,547 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Levels/Level_0.gd" type="Script" id=1]
+[ext_resource path="res://Doorway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Goo_Particle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Platform.gd" type="Script" id=5]
+[ext_resource path="res://messages.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Orbs_Placement.gd" type="Script" id=7]
+[ext_resource path="res://collectible.tscn" type="PackedScene" id=8]
+[ext_resource path="res://RedObstacle.gd" type="Script" id=9]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=11]
+[ext_resource path="res://LightningHazard.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 190, -230, 0, 0, 0, 0, 80, -240, 0, 0, 0, 0, 20, -240, 0, 0, 0, 0, -100, -240, 0, 0, 0, 0, -1010, -940 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -980, -930, 0, 0, 0, 0, -970, -960, 0, 0, 0, 0, -950, -930 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -900, -930, 0, 0, 0, 0, -880, -970, 0, 0, 0, 0, -860, -930 )
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 1040, 860 )
+script = ExtResource( 1 )
+
+[node name="Doorway" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1380, -1760 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -110, 50 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform2" type="RigidBody2D" parent="Platforms"]
+position = Vector2( -290, -190 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform2"]
+visible = false
+polygon = PoolVector2Array( 1530, 680, 1590, 570, 1580, 650 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform2"]
+polygon = PoolVector2Array( 1160, 490, 750, 490, 750, -710, 3210, -710, 3210, -180, 3210, 1530, 2500, 1530, 2500, 120, 1170, 120 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 2140, 360 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform"]
+visible = false
+polygon = PoolVector2Array( -650, -230, -920, -250, -1530, -70, -880, -150, -660, -80 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform"]
+polygon = PoolVector2Array( -260, 360, -210, 300, -130, 290, -80, 250, -430, 250, -500, 250, -390, 390 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform3" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1050, 920 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform3"]
+visible = false
+polygon = PoolVector2Array( 720, -670, 490, -590, 850, -590 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform3"]
+polygon = PoolVector2Array( -180, -320, -180, 30, 270, 30, 270, -30, 350, -30, 350, 30, 440, 30, 440, -100, 510, -100, 510, 30, 690, 30, 820, 160, 910, 160, 910, 30, 1010, 30, 1010, -130, 1160, -130, 1160, 400, -590, 400, -590, -550, -380, -520, -370, -500, -310, -420, -250, -360 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform4" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform4"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform4"]
+polygon = PoolVector2Array( 270, 30, -160, 30, -160, 130, -60, 80, 270, 80 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform5" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform5"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform5"]
+polygon = PoolVector2Array( -160, -200, -330, -170, -300, -120, -270, -80, -220, -30, -160, 10, -160, -200 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform6" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform6"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform6"]
+polygon = PoolVector2Array( -540, -190, -570, -200, -810, -200, -810, -670, -1030, -670, -1030, 240, -570, 240 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform7" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform7"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform7"]
+polygon = PoolVector2Array( -1030, 30, -1260, 30, -1260, -1890, 1900, -1890, 1900, -1470, 1520, -1470, 1520, -1790, -1030, -1790 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform8" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform8"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform8"]
+polygon = PoolVector2Array( 30, -1740, 110, -1740, 110, -1470, 30, -1470, 30, -1590, -90, -1590, -90, -1630, 30, -1630 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform9" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform9"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform9"]
+polygon = PoolVector2Array( -570, -900, -730, -900, -730, -850, -570, -850 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform10" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform10"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform10"]
+polygon = PoolVector2Array( -1030, -1120, -890, -1120, -890, -1080, -1030, -1080 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform11" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform11"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform11"]
+polygon = PoolVector2Array( -890, -1240, -890, -1280, -570, -1280, -570, -1240 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WD-Move" type="Label" parent="Platforms"]
+margin_left = 880.0
+margin_top = 960.0
+margin_right = 1016.0
+margin_bottom = 1001.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.00392157, 0, 0, 1 )
+text = "WD or Arrows
+To move"
+
+[node name="Platform12" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 1030, 570 )
+mode = 1
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform12"]
+visible = false
+polygon = PoolVector2Array( -130, 0, 120, 0, 110, 40, -90, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform12"]
+polygon = PoolVector2Array( -1030, -1430, -710, -1430, -710, -1390, -1030, -1390 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Space_Jump" type="Label" parent="Platforms"]
+margin_left = 1290.0
+margin_top = 970.0
+margin_right = 1430.0
+margin_bottom = 1000.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Space to Jump"
+
+[node name="Space_Jump2" type="Label" parent="Platforms"]
+margin_left = 1970.0
+margin_top = 960.0
+margin_right = 2195.0
+margin_bottom = 1023.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Keep Pressing Space 
+To Climb on Ledges"
+
+[node name="Space_Jump3" type="Label" parent="Platforms"]
+margin_left = 2215.0
+margin_top = 700.0
+margin_right = 2420.0
+margin_bottom = 760.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press Space After 
+touching the wall
+to jump again."
+
+[node name="Space_Jump4" type="Label" parent="Platforms"]
+margin_left = 1720.0
+margin_top = 460.0
+margin_right = 1910.0
+margin_bottom = 550.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You can jump mid-air, if you
+haven't jumped previously"
+
+[node name="Mouse_Click" type="Label" parent="Platforms"]
+margin_left = 960.0
+margin_top = 460.0
+margin_right = 1210.0
+margin_bottom = 510.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Use Left Click Button to 
+Shoot Orbs."
+
+[node name="Mouse_Click2" type="Label" parent="Platforms"]
+margin_left = 220.0
+margin_top = 390.0
+margin_right = 470.0
+margin_bottom = 431.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Some Surfaces can be 
+broken when hit with 
+an orb of the same colour"
+
+[node name="Mouse_Click3" type="Label" parent="Platforms"]
+margin_left = -130.0
+margin_top = -90.0
+margin_right = 130.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Use Q/E to Cycle around 
+Colours.
+You can also use
+1,2,3 to choose between
+Red, Green or Blue."
+align = 1
+
+[node name="Mouse_Click4" type="Label" parent="Platforms"]
+margin_left = 470.0
+margin_top = -870.0
+margin_right = 762.0
+margin_bottom = -763.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You can see which colour 
+you have selected from the 
+arrow indicator around you
+or from the circle on the Top
+Left of your screen."
+align = 1
+
+[node name="Mouse_Click5" type="Label" parent="Platforms"]
+margin_left = 860.0
+margin_top = -870.0
+margin_right = 1154.0
+margin_bottom = -820.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You can carry a maximum of 
+5 orbs per colour."
+align = 1
+
+[node name="Mouse_Click6" type="Label" parent="Platforms"]
+margin_left = 1190.0
+margin_top = -870.0
+margin_right = 1550.0
+margin_bottom = -820.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "In case you die, you can respawn 
+upon a checkpoint. 
+Also you can retrieve all orbs
+you have collected within a level
+by interacting with a checkpoint."
+align = 1
+
+[node name="Mouse_Click7" type="Label" parent="Platforms"]
+margin_left = 1610.0
+margin_top = -870.0
+margin_right = 1960.0
+margin_bottom = -763.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Red Orbs grant you extra health.
+Green Orbs increase your speed.
+Blue orbs increase your Jump Force.
+
+If you have any red orbs and 
+you are about to get killed. 
+You will simply lose a red orb
+instead."
+align = 1
+
+[node name="Mouse_Click8" type="Label" parent="Platforms"]
+margin_left = 1990.0
+margin_top = -890.0
+margin_right = 2310.0
+margin_bottom = -851.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lightning Kills you."
+align = 1
+
+[node name="Mouse_Click9" type="Label" parent="Platforms"]
+margin_left = 2110.0
+margin_top = -890.0
+margin_right = 2770.0
+margin_bottom = -851.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Use such gates to proceed
+deeper in the game"
+align = 1
+
+[node name="Orbs_Placement" type="Node2D" parent="."]
+position = Vector2( 0, -50 )
+script = ExtResource( 7 )
+
+[node name="Red" type="Path2D" parent="Orbs_Placement"]
+curve = SubResource( 1 )
+
+[node name="Green" type="Path2D" parent="Orbs_Placement"]
+curve = SubResource( 2 )
+
+[node name="Blue" type="Path2D" parent="Orbs_Placement"]
+curve = SubResource( 3 )
+
+[node name="collectible" parent="." instance=ExtResource( 8 )]
+position = Vector2( -540, 510 )
+
+[node name="RedObstacle" type="RigidBody2D" parent="." groups=[
+"RedObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 9 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RedObstacle"]
+color = Color( 0.643137, 0, 0, 1 )
+polygon = PoolVector2Array( -820, -670, -580, -670, -580, -620, -820, -620 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RedObstacle"]
+
+[node name="RedObstacle2" type="RigidBody2D" parent="." groups=[
+"RedObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 9 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RedObstacle2"]
+color = Color( 0.643137, 0, 0, 1 )
+polygon = PoolVector2Array( -900, -1570, -1040, -1570, -1040, -1530, -900, -1530 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RedObstacle2"]
+
+[node name="GreenObstacle" type="RigidBody2D" parent="." groups=[
+"GreenObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 9 )
+
+[node name="Polygon2D" type="Polygon2D" parent="GreenObstacle"]
+color = Color( 0.172549, 0.482353, 0.0980392, 1 )
+polygon = PoolVector2Array( -310, -1760, -310, -2080, -250, -2080, -250, -1760 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GreenObstacle"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BlueObstacle2" type="RigidBody2D" parent="." groups=[
+"BlueObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 9 )
+
+[node name="Polygon2D" type="Polygon2D" parent="BlueObstacle2"]
+color = Color( 0.168627, 0.211765, 0.858824, 1 )
+polygon = PoolVector2Array( -720, -1720, -580, -1720, -580, -1680, -720, -1680 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlueObstacle2"]
+polygon = PoolVector2Array( -140, -1920, -10, -1920, -10, -1890, -140, -1890 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BlueObstacle3" type="RigidBody2D" parent="." groups=[
+"BlueObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 9 )
+
+[node name="Polygon2D" type="Polygon2D" parent="BlueObstacle3"]
+color = Color( 0.168627, 0.211765, 0.858824, 1 )
+polygon = PoolVector2Array( 20, -2030, 20, -2080, 100, -2080, 100, -2030 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlueObstacle3"]
+polygon = PoolVector2Array( -140, -1920, -10, -1920, -10, -1890, -140, -1890 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Checkpoint" parent="." instance=ExtResource( 10 )]
+position = Vector2( 310, -1840 )
+
+[node name="Checkpoint2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1242.47, -1840 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 11 )]
+
+[node name="Node2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1110, -1750 )
+rotation = -1.5708
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 20, 10 )
+polygon = PoolVector2Array( -1360, -310, -600, -310, -600, -220, -480, -220, -480, 390, 2220, 390, 2220, 730, -1370, 720 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -1760, 710, -1210, 710, -1180, -2150, 2580, -2110, 2670, -2690, 270, -2990, -1760, -2650 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 1820, -2190, 1800, 720, 3030, 730, 2980, -2660 )
+[connection signal="orb_fired" from="." to="collectible" method="_on_Node2D_orb_fired"]
+[connection signal="colourChanged" from="player" to="HUD" method="_on_player_colourChanged"]
+[connection signal="shoot_orb" from="player" to="." method="_on_player_shoot_orb"]
