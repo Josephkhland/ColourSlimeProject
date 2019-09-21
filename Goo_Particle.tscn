@@ -1,78 +1,279 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Goo_Particle.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0000.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0001.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0002.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0006.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0007.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0009.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0008.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0010.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0011.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0012.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0013.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0014.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0015.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0016.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0017.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0018.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0019.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0020.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0021.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0022.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0023.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0024.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0026.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0027.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0025.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0028.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0029.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0030.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0031.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0032.png" type="Texture" id=34]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0033.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0034.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0035.png" type="Texture" id=37]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": false,
-"name": "pre_jump",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "jump",
-"speed": 14.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "pre_fall",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
-"loop": false,
-"name": "land",
-"speed": 16.0
-} ]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0025.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0026.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0027.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0000.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0001.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0002.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0006.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0007.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0008.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0009.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0010.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0017.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0018.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0019.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0028.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0029.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0030.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0031.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0032.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0035.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0020.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0021.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0022.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0023.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0024.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0011.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0012.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0013.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0014.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0015.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0016.png" type="Texture" id=35]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.22402
+
+[sub_resource type="Animation" id=2]
+resource_name = "fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_move"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "jump"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 17 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "land"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_default_blend_time")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "pre_fall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "pre_jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "idle_move"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "land"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "land"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "pre_fall"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "pre_fall"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "pre_jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachine" id=25]
+states/fall/node = SubResource( 8 )
+states/fall/position = Vector2( 805.745, 232.745 )
+states/idle_move/node = SubResource( 9 )
+states/idle_move/position = Vector2( 515.319, 215.723 )
+states/jump/node = SubResource( 10 )
+states/jump/position = Vector2( 720.106, 43.9149 )
+states/land/node = SubResource( 12 )
+states/land/position = Vector2( 524.894, 354.553 )
+"states/land 2/node" = SubResource( 11 )
+"states/land 2/position" = Vector2( 217.213, 312.404 )
+states/pre_fall/node = SubResource( 14 )
+states/pre_fall/position = Vector2( 837.128, 134.34 )
+"states/pre_fall 2/node" = SubResource( 13 )
+"states/pre_fall 2/position" = Vector2( 228.915, 160.277 )
+states/pre_jump/node = SubResource( 15 )
+states/pre_jump/position = Vector2( 451.489, 51.2145 )
+transitions = [ "pre_jump", "jump", SubResource( 16 ), "idle_move", "pre_jump", SubResource( 17 ), "jump", "pre_fall", SubResource( 18 ), "fall", "pre_fall", SubResource( 19 ), "fall", "land", SubResource( 20 ), "land", "idle_move", SubResource( 21 ), "pre_fall 2", "land 2", SubResource( 22 ), "pre_fall 2", "idle_move", SubResource( 23 ), "land 2", "idle_move", SubResource( 24 ) ]
+start_node = "idle_move"
+graph_offset = Vector2( -139, 118 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=26]
 
 [node name="player" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -82,16 +283,16 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 scale = Vector2( 10, 10 )
 color = Color( 0, 0, 0, 1 )
 skeleton = NodePath("../Skeleton2D")
 polygon = PoolVector2Array( -1, 0, -0.707, -0.707, 0, -1, 0.707, -0.707, 1, 0, 0.707, 0.707, 0, 1, -0.707, 0.707 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.08183, 4.54225 )
 scale = Vector2( 0.1, 0.1 )
-frames = SubResource( 2 )
-animation = "land"
-frame = 7
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -110,3 +311,18 @@ current = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.5
+anims/fall = SubResource( 2 )
+anims/idle_move = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/land = SubResource( 5 )
+anims/pre_fall = SubResource( 6 )
+anims/pre_jump = SubResource( 7 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 25 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 26 )
