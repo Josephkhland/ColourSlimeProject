@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Options_menu.gd" type="Script" id=1]
+[ext_resource path="res://menuFont.tres" type="DynamicFont" id=2]
+
+[node name="Options_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -984.0
+margin_bottom = -570.0
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -200, 0 )
+scale = Vector2( 1.33333, 1 )
+color = Color( 0.368627, 0.360784, 0.360784, 1 )
+polygon = PoolVector2Array( 630, 220, 780, 220, 810, 248.999, 810, 323.998, 780, 350, 630, 350, 600, 320.998, 600, 248.999 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2( -132.857, 43.8461 )
+scale = Vector2( 1.2381, 0.846154 )
+color = Color( 0.584314, 0.584314, 0.584314, 1 )
+polygon = PoolVector2Array( 630, 220, 780, 220, 810, 248.999, 810, 323.998, 780, 350, 630, 350, 600, 320.998, 600, 248.999 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 620.0
+margin_top = 260.0
+margin_right = 860.0
+margin_bottom = 320.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sound Volume"
+align = 1
+
+[node name="HBoxContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 19.0
+margin_right = 240.0
+margin_bottom = 35.0
+
+[node name="Sound_Volume" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+margin_right = 240.0
+margin_bottom = 16.0
+max_value = 1.0
+step = 0.0
+
+[node name="HSplitContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 39.0
+margin_right = 240.0
+margin_bottom = 63.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer"]
+margin_top = 4.0
+margin_right = 97.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 2 )
+text = "Player Sprite"
+align = 1
+
+[node name="player_sprite_on" type="CheckBox" parent="VBoxContainer/HSplitContainer"]
+margin_left = 101.0
+margin_right = 125.0
+margin_bottom = 24.0
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Sound_Volume" to="." method="_on_Sound_Volume_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/player_sprite_on" to="." method="_on_player_sprite_on_pressed"]

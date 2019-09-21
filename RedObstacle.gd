@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_collectible_breakWall(id):
-	print("Success?")
+	
 	if id == self.get_name():
 		activation(false)
 		if respawn_time == -1:

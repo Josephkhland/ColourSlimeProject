@@ -34,6 +34,7 @@ func hookDo():
 
 func colorChanges():
 	my_color = $Polygon2D.color
+	$Sprite.modulate = my_color
 	colourSCount[0]  = my_color.r*4
 	colourSCount[1] = my_color.g*4
 	colourSCount[2] = my_color.b*4
@@ -64,7 +65,6 @@ func shoot():
 		emit_signal("shoot_orb",diriShoot,colourSelection)
 
 func _ready():
-	print (self.owner)
 	my_color = $Polygon2D.color
 	#orbs_consumed=0
 	colourSelection=0
@@ -91,7 +91,14 @@ func anim():
 		$Sprite.scale.x = 0.1
 
 func _physics_process(delta):
-
+	if (Global.sprite_on_option ==true):
+		
+		$Polygon2D.hide()
+		$Sprite.show()
+	else:
+		
+		$Polygon2D.show()
+		$Sprite.hide()
 	anim()
 	if not_stunned == 0:
 		timeStunned += delta

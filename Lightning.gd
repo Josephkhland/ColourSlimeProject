@@ -15,7 +15,7 @@ func _process(delta):
 	timePassed += delta
 	if timePassed > 0.5:
 		scale.y = -scale.y
-		print("FLIP!")
+		
 		timePassed = 0
 
 

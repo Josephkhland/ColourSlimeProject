@@ -49,16 +49,17 @@ func level_name_finder():
 	var texty = get_node("cover/Level_Name")
 	var level = get_tree().get_current_scene().filename
 	level = level.split("_")
-	print(level)
+
 	var nlevel = int(level[1].split(".")[0])
-	print(nlevel)
+
 	match nlevel:
 		0:
 			texty.text = "Tutorial"
 		1:
 			texty.text = "Level 1: Welcome!"
 		2:
-			texty.text = "Level 2: Incomplete Level"
+			texty.text = "To Be Continued?"
+			Global.gameCompleted = true
 		3:
 			texty.text = "Level 3: Incomplete Level"
 		_:

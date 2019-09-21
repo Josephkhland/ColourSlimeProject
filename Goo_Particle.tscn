@@ -1,13 +1,13 @@
 [gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Goo_Particle.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0025.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0026.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0027.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0000.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0001.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0002.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0025.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0000.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0001.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0002.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0006.png" type="Texture" id=11]
@@ -53,7 +53,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimationPlayer:playback_speed")
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimationPlayer:playback_speed")
@@ -179,7 +179,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 2 ) ]
+"values": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 5 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -271,7 +271,7 @@ states/pre_jump/node = SubResource( 15 )
 states/pre_jump/position = Vector2( 451.489, 51.2145 )
 transitions = [ "pre_jump", "jump", SubResource( 16 ), "idle_move", "pre_jump", SubResource( 17 ), "jump", "pre_fall", SubResource( 18 ), "fall", "pre_fall", SubResource( 19 ), "fall", "land", SubResource( 20 ), "land", "idle_move", SubResource( 21 ), "pre_fall 2", "land 2", SubResource( 22 ), "pre_fall 2", "idle_move", SubResource( 23 ), "land 2", "idle_move", SubResource( 24 ) ]
 start_node = "idle_move"
-graph_offset = Vector2( -139, 118 )
+graph_offset = Vector2( -139, 49.448 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=26]
 
@@ -283,7 +283,6 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
 scale = Vector2( 10, 10 )
 color = Color( 0, 0, 0, 1 )
 skeleton = NodePath("../Skeleton2D")
@@ -313,7 +312,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 1.5
 anims/fall = SubResource( 2 )
 anims/idle_move = SubResource( 3 )
 anims/jump = SubResource( 4 )

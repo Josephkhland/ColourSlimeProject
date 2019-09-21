@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://.import/mini-wakuwaku-maru.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Images/BLACK.png" type="Texture" id=3]
+[ext_resource path="res://Pause_Menu.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -49,7 +50,6 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Checkpoint!"
 
 [node name="cover" type="TextureRect" parent="."]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 3 )
@@ -62,3 +62,7 @@ custom_fonts/font = SubResource( 3 )
 text = "Tutorial"
 align = 1
 valign = 1
+
+[node name="Pause_Menu" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_top = -50.0

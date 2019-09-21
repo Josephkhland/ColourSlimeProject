@@ -70,7 +70,7 @@ func _process(delta):
 				add_child(scene_instance)
 				
 				get_node(str("shot_Collectible_red",i,"/Polygon2D")).color = Color(float(1),0,0,0.5)
-				print(get_node(str("shot_Collectible_red",i,"/Polygon2D")).color)
+				
 				
 				scene_instance.add_to_group("shot_Collectibles")
 			for i in curGreen:

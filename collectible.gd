@@ -36,7 +36,6 @@ func _on_collectible_body_entered( body ):
 func _ready():
 	set_contact_monitor( true )
 	set_max_contacts_reported( 5 )
-	print (self.owner)
 	connect("orb_taken",self.owner,"_on_orb_collected")
 	$Polygon2D.color = Color(float(randi()%2),float(randi()%2),float(randi()%2),0.5)
 	orb_color = $Polygon2D.color

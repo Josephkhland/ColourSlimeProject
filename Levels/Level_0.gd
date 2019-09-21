@@ -8,6 +8,7 @@ var redProgress
 var blueProgress
 var greenProgress
 var loaded = false
+var player_current_scale
 
 signal orb_fired(col)
 # Declare member variables here. Examples:
@@ -23,7 +24,10 @@ func _ready():
 	connect("orb_fired",get_node("collectible"),"_on_Node2D_orb_fired")
 	loaded = false
 	
-
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_node("HUD/Pause_Menu").show()
+		get_tree().paused = true
 
 func _on_player_shoot_orb(dir,col):
 	counter= counter+1
@@ -41,7 +45,6 @@ func _on_player_shoot_orb(dir,col):
 		get_node(str("shot_Collectible",counter,"/Polygon2D")).color = Color(0,0,float(1),0.25)
 
 func _on_orb_collected(col,orbName):
-	print("God- Dammit!")
 	if "shot" in orbName:
 		return
 	else:

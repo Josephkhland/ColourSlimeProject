@@ -12,17 +12,17 @@
 [ext_resource path="res://Orbs_Placement.gd" type="Script" id=10]
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=11]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -860, -300, 0, 0, 0, 0, -5320, -4020, 0, 0, 0, 0, 660, -1030 )
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -1040, -900, 0, 0, 0, 0, -2080, 90, 0, 0, 0, 0, -2800, -2550 )
 }
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -2740, -1380, 0, 0, 0, 0, -2990, -1850, 0, 0, 0, 0, -4510, -1310, 0, 0, 0, 0, -880, -2670 )
 }
@@ -977,14 +977,14 @@ position = Vector2( 0, -50 )
 script = ExtResource( 10 )
 
 [node name="Red" type="Path2D" parent="Orbs_Placement_1"]
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 
 [node name="Green" type="Path2D" parent="Orbs_Placement_1"]
 position = Vector2( 0, 50 )
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
 [node name="Blue" type="Path2D" parent="Orbs_Placement_1"]
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 11 )]
 

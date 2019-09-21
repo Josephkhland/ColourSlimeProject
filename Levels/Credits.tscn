@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://messages.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menuFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://.import/mini-wakuwaku-maru.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Levels/credits.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 1
+outline_color = Color( 0.301961, 0.0784314, 0.462745, 1 )
+extra_spacing_bottom = 10
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 390.0
+margin_right = 1024.0
+margin_bottom = 430.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+margin_left = 391.0
+margin_right = 519.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level Select"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+margin_left = 539.0
+margin_right = 632.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "To Menu"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+margin_top = 100.0
+margin_right = 1024.0
+margin_bottom = 390.0
+
+[node name="credits" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 290.0
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Game Design & Programming - Josephkhland
+Artwork & Music - Regression
+
+
+Menu Theme -Small Town Welcome
+[Copyright](C) 2013 Joel Steudler
+
+
+
+
+
+[b]Special Thanks to You
+For Playing our Game! [/b]
+[/center]"
+text = "Game Design & Programming - Josephkhland
+Artwork & Music - Regression
+
+
+Menu Theme -Small Town Welcome
+[Copyright](C) 2013 Joel Steudler
+
+
+
+
+
+Special Thanks to You
+For Playing our Game! 
+"
+scroll_following = true
+script = ExtResource( 4 )
+[connection signal="pressed" from="HBoxContainer/Button2" to="CanvasLayer/MarginContainer/credits" method="_on_Button2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button" to="CanvasLayer/MarginContainer/credits" method="_on_Button_pressed"]

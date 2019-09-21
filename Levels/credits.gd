@@ -8,7 +8,8 @@ var completed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().get_parent().get_parent().get_node("Button").hide()
+	get_parent().get_parent().get_parent().get_node("HBoxContainer/Button").hide()
+	get_parent().get_parent().get_parent().get_node("HBoxContainer/Button2").hide()
 	completed = false
 	timePassed=0
 	visible_characters = 0
@@ -19,8 +20,9 @@ func _process(delta):
 	timePassed += delta
 	if visible_characters == -1:
 		completed = true
-		get_parent().get_parent().get_parent().get_node("Button").show()
-
+		get_parent().get_parent().get_parent().get_node("HBoxContainer/Button").show()
+		if Global.gameCompleted ==true:
+			get_parent().get_parent().get_parent().get_node("HBoxContainer/Button2").show()
 		if Input.is_action_just_pressed("ui_accept") || Input.is_action_just_pressed("ui_select"):
 			_on_Button_pressed()
 	if Input.is_action_just_pressed("ui_accept") || Input.is_action_just_pressed("ui_select"):
@@ -34,4 +36,7 @@ func _process(delta):
 	
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Levels/Level_1.tscn")
+	get_tree().change_scene("res://Levels/Menu.tscn")
+
+func _on_Button2_pressed():
+	get_tree().change_scene("res://Levels/Level_2.tscn")
