@@ -18,6 +18,7 @@ var velocity = Vector2()
 var not_stunned = 1
 var timeStunned =0
 onready var polygon = $Polygon2D
+var anim_state_machine
 
 
 signal orb_was_taken
@@ -69,23 +70,22 @@ func _ready():
 	not_stunned = 1
 	connect("shoot_orb",self.owner,"_on_player_shoot_orb")
 	connect("colourChanged",self.owner.get_node("HUD"),"_on_player_colourChanged")
+	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 func anim():
-	var current = $AnimatedSprite.animation
-	if velocity.x != 0:
-		$AnimatedSprite.play("move")
-	else:
-		$AnimatedSprite.stop()
+	var current = anim_state_machine.get_current_node()
 	
 	if velocity.y < 0:
-		$AnimatedSprite.play("jump")
+		anim_state_machine.travel("jump")
 	if velocity.y > 0:
-		$AnimatedSprite.play("fall")
+		anim_state_machine.travel("fall")
+	if is_on_floor():
+		anim_state_machine.travel("idle_move")
 	
 	if velocity.x < 0:
-		$AnimatedSprite.scale.x = -0.1
+		$Sprite.scale.x = -0.1
 	if velocity.x > 0:
-		$AnimatedSprite.scale.x = 0.1
+		$Sprite.scale.x = 0.1
 
 func _physics_process(delta):
 	anim()
