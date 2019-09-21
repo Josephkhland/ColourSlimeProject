@@ -16,6 +16,7 @@ func _ready():
 func _on_Continue_pressed():
 	get_tree().paused = false
 	get_node("VBoxContainer/Options").pressed = false
+	get_node("Options_menu").open = false
 	self.hide()
 
 
