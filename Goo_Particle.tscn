@@ -1,16 +1,16 @@
 [gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Goo_Particle.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0006.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0026.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0027.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0025.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0000.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0001.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0002.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0006.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0007.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0008.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0009.png" type="Texture" id=14]
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimationPlayer:playback_speed")

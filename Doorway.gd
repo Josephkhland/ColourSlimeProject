@@ -22,11 +22,11 @@ func _process(delta):
 			get_tree().change_scene("res://Levels/Cutscene.tscn")
 		else :
 			get_tree().change_scene(str("res://Levels/Level_",nLevel,".tscn"))
-			var findPlayer = get_parent().get_node("player")
-			if findPlayer != null:
-				Global.totalRed += findPlayer.colourSCount[0]
-				Global.totalGreen += findPlayer.colourSCount[1]
-				Global.totalBlue += findPlayer.colourSCount[2]
+			var findScoreKeeper = self.owner
+			if findScoreKeeper != null:
+				Global.totalRed += findScoreKeeper.redProgress
+				Global.totalGreen += findScoreKeeper.greenProgress
+				Global.totalBlue += findScoreKeeper.blueProgress
 
 
 func _on_Doorway_body_entered(body):

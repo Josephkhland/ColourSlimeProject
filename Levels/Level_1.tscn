@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Levels/Level_0.gd" type="Script" id=1]
 [ext_resource path="res://Doorway.tscn" type="PackedScene" id=2]
@@ -11,20 +11,21 @@
 [ext_resource path="res://collectible.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Orbs_Placement.gd" type="Script" id=10]
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=11]
+[ext_resource path="res://messages.tres" type="DynamicFont" id=12]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -860, -300, 0, 0, 0, 0, -5320, -4020, 0, 0, 0, 0, 660, -1030 )
+"points": PoolVector2Array( 0, 0, 0, 0, -860, -300, 0, 0, 0, 0, -5320, -4020, 0, 0, 0, 0, 660, -1030, 0, 0, 0, 0, -1650, -2890, 0, 0, 0, 0, 870, -2280 )
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -1040, -900, 0, 0, 0, 0, -2080, 90, 0, 0, 0, 0, -2800, -2550 )
+"points": PoolVector2Array( 0, 0, 0, 0, -1040, -900, 0, 0, 0, 0, -2080, 90, 0, 0, 0, 0, -2800, -2550, 0, 0, 0, 0, 2480, -1130, 0, 0, 0, 0, -3150, -4330 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -2740, -1380, 0, 0, 0, 0, -2990, -1850, 0, 0, 0, 0, -4510, -1310, 0, 0, 0, 0, -880, -2670 )
+"points": PoolVector2Array( 0, 0, 0, 0, -2740, -1380, 0, 0, 0, 0, -2990, -1850, 0, 0, 0, 0, -4510, -1310, 0, 0, 0, 0, -880, -2670, 0, 0, 0, 0, -5330, -3850 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -34,6 +35,16 @@ script = ExtResource( 1 )
 position = Vector2( -50, 180 )
 color = Color( 0.407843, 0.396078, 0.388235, 1 )
 polygon = PoolVector2Array( -860, -3030, -780, -3030, -780, -2990, -790, -2990, -790, -2880, -780, -2880, -780, -2850, -860, -2850, -860, -2880, -850, -2880, -850, -2990, -860, -2990, -860, -3030 )
+
+[node name="Decor2D15" type="Polygon2D" parent="."]
+position = Vector2( -50, 180 )
+color = Color( 0.407843, 0.396078, 0.388235, 1 )
+polygon = PoolVector2Array( -123.158, -459.642, -91.3312, -549.648, -144.034, -565.048, -136.505, -591.741, -10.2235, -557.861, -16.7258, -528.43, -76.6154, -544.172, -120.42, -439.793 )
+
+[node name="Decor2D16" type="Polygon2D" parent="."]
+position = Vector2( -50, 180 )
+color = Color( 0.2, 0.176471, 0.160784, 1 )
+polygon = PoolVector2Array( -121.447, -467.856, -90.6467, -549.648, -143.007, -565.048, -136.847, -590.373, -12.2769, -557.177, -18.7792, -528.772, -77.9843, -545.541, -119.394, -447.664 )
 
 [node name="Decor2D11" type="Polygon2D" parent="."]
 position = Vector2( -50, 180 )
@@ -84,8 +95,11 @@ polygon = PoolVector2Array( -4510, -1820, -4500, -1620, -4500, -1540, -4480, -14
 [node name="Doorway" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2380, -311.825 )
 
+[node name="Doorway2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1050, 250 )
+
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
-position = Vector2( -480, -400 )
+position = Vector2( -437.527, -417.18 )
 
 [node name="Checkpoint2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -2630, -910 )
@@ -97,12 +111,17 @@ position = Vector2( 0, -1610 )
 position = Vector2( 40, -2620 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( -330, -370 )
+position = Vector2( -300, -370 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="Node2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 130, 60 )
+scale = Vector2( 2, 1 )
+
+[node name="Lightning30" parent="." instance=ExtResource( 6 )]
+position = Vector2( -160, 360 )
+rotation = -1.5708
 scale = Vector2( 2, 1 )
 
 [node name="Platforms" type="YSort" parent="."]
@@ -119,7 +138,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform"]
-polygon = PoolVector2Array( -800, -550, -920, -550, -920, -320, -860, -320, -890, -350, -860, -340, -850, -340, -820, -350, -850, -320, 760, -320, 1141.71, -320, 1140, -640, 1280, -640, 1280, -490, 1360, -390, 1483.78, -383.069, 1580, -480, 1580, -640, 1720, -640, 1730, -320, 2610, -320, 2610, 240, -1420, 240, -1420, -850, -1050, -850, -1080, -880, -1040, -870, -1000, -880, -1030, -850, -800, -850 )
+polygon = PoolVector2Array( -800, -550, -920, -550, -920, -320, -860, -320, -890, -350, -860, -340, -850, -340, -820, -350, -850, -320, -170, -320, -170, -50, -200, 0, -170, 50, -170, 330, -80, 330, 1030, 240, 1130, 230, 1220, 150, 1170, 80, 1070, 80, 980, 80, 950, 140, -120, 280, -120, -320, 760, -320, 1141.71, -320, 1140, -640, 1280, -640, 1280, -490, 1360, -390, 1483.78, -383.069, 1580, -480, 1580, -640, 1720, -640, 1730, -320, 2610, -320, 2610, 620, -1430, 620, -1420, -850, -1050, -850, -1080, -880, -1040, -870, -1000, -880, -1030, -850, -800, -850 )
 uv = PoolVector2Array( 11.2499, 14.875, 114.375, 11.75, 495.625, 8.625, 492.5, 233.625, 501.875, 499.25, 1.87488, 496.125, 8.12488, 346.125, 8.12488, 130.5 )
 __meta__ = {
 "_edit_lock_": true
@@ -157,7 +176,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform3"]
-polygon = PoolVector2Array( -230, -330, -230, -540, -100, -540, -100, -330 )
+polygon = PoolVector2Array( -60, -330, -60, -540, 80, -540, 80, -330 )
 uv = PoolVector2Array( 1.87488, 499.25, 0.892853, 0, 499.107, 0.892853, 498.75, 499.25 )
 __meta__ = {
 "_edit_lock_": true
@@ -358,7 +377,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform12"]
-polygon = PoolVector2Array( -4670, -3200, -4470, -2650, -4260, -2440, -4080, -1950, -3961.49, -1508.3, -4070, -1500, -4230, -1570, -4420, -1720, -4580, -1720, -4660, -1620, -4680, -1500, -4660, -1390, -4570, -1320, -4520, -1320, -4540, -1350, -4510, -1330, -4480, -1350, -4500, -1320, -4440, -1320, -4280, -1380, -4140, -1420, -3938.16, -1421.31, -3860, -1130, -3810, -600, -3640, -210, -3410, 210, -2730, 210, -750, 210, -740, 700, -5440, 680, -6650, 680, -5950, -2870, -5630, -3880, -5460, -4030, -5340, -4030, -5380, -4080, -5320, -4050, -5250, -4080, -5300, -4030, -5110, -4030 )
+polygon = PoolVector2Array( -4670, -3200, -4470, -2650, -4260, -2440, -4080, -1950, -3961.49, -1508.3, -4070, -1500, -4230, -1570, -4420, -1720, -4466.35, -1720, -5074.47, -2977.88, -5320, -3960, -5370, -3960, -5109.76, -2948.55, -4510, -1720, -4580, -1720, -4660, -1620, -4680, -1500, -4660, -1390, -4570, -1320, -4520, -1320, -4540, -1350, -4510, -1330, -4480, -1350, -4500, -1320, -4440, -1320, -4280, -1380, -4140, -1420, -3938.16, -1421.31, -3860, -1130, -3810, -600, -3640, -210, -3410, 210, -2730, 210, -750, 210, -740, 700, -5440, 680, -6650, 680, -5950, -2870, -5630, -3880, -5460, -4030, -5340, -4030, -5380, -4080, -5320, -4050, -5250, -4080, -5300, -4030, -5110, -4030 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -430,7 +449,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform16"]
-polygon = PoolVector2Array( 800, -2300, 980, -2290, 980, -2200, 900, -2100, 850, -2230, 800, -2260 )
+polygon = PoolVector2Array( 800, -2300, 860, -2300, 830, -2320, 870, -2310, 910, -2320, 880, -2300, 980, -2300, 980, -2200, 900, -2100, 850, -2230, 800, -2260 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -484,7 +503,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform20"]
-polygon = PoolVector2Array( -1680, -3100, -1290, -3100, -1350, -3060, -1390, -3010, -1480, -3030, -1550, -3020, -1650, -3010, -1650, -2890, -1520, -2890, -1530, -2840, -1610, -2770, -1730, -2810, -1800, -2880, -1800, -3100 )
+polygon = PoolVector2Array( -1680, -3100, -1260, -3070, -1160, -3000, -1160, -2930, -1360, -2940, -1360, -2830, -1440, -2760, -1480, -2730, -1710, -2770, -1620, -2970, -1660, -2980, -1740, -2790, -1800, -2880, -1990, -3100, -1800, -3100 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -520,7 +539,151 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform22"]
-polygon = PoolVector2Array( -2160, -2900, -1950, -2900, -1950, -2790, -2010, -2730, -2040, -2670, -2120, -2730, -2210, -2840, -2210, -2900 )
+polygon = PoolVector2Array( -1130, -3310, -980, -3360, -570, -3360, -500, -3280, -980, -3290, -1350, -3180, -1350, -3290 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform24" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform24"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform24"]
+polygon = PoolVector2Array( 400, -3510, 400, -3640, 550, -3640, 550, -3810, 660, -3810, 660, -3560, 600, -3510 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform25" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform25"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform25"]
+polygon = PoolVector2Array( 390, -3960, 390, -3880, -50, -3880, -290, -4100, 70, -4100, 70, -3960 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform26" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform26"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform26"]
+polygon = PoolVector2Array( -630, -4100, -1330, -4100, -1330, -4020, -630, -4020 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform27" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform27"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform27"]
+polygon = PoolVector2Array( -2020, -4370, -1450, -4370, -1450, -4230, -2020, -4300 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform28" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform28"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform28"]
+polygon = PoolVector2Array( -2450, -4400, -2450, -4320, -2750, -4150, -3210, -4150, -3210, -4250, -3167.86, -4250, -3210, -4270, -3150, -4260, -3090, -4270, -3140, -4250, -2760, -4250 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform29" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform29"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform29"]
+polygon = PoolVector2Array( 2290, -1160, 2470, -1160, 2380, -970 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform30" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform30"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform30"]
+polygon = PoolVector2Array( 2390, -880, 2390, -940, 2510, -1170, 2660, -1130, 2620, -800, 2430, -840 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform31" type="RigidBody2D" parent="Platforms"]
+position = Vector2( 0, 10 )
+mode = 1
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform31"]
+visible = false
+polygon = PoolVector2Array( -180, 30, 170, 30, 270, -30, 270, -170, 440, -170, 440, 400, -180, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform31"]
+polygon = PoolVector2Array( -4960, -3730, -4890, -3730, -4960, -3680 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -534,9 +697,48 @@ script = ExtResource( 8 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Platforms/RedObstacle"]
 color = Color( 0.952941, 0, 0, 1 )
-polygon = PoolVector2Array( -230, -530, -250, -660, -80, -660, -100, -530 )
+polygon = PoolVector2Array( -60, -530, -100, -660, 120, -660, 80, -530 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/RedObstacle"]
+
+[node name="RedObstacle4" type="RigidBody2D" parent="Platforms" groups=[
+"RedObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/RedObstacle4"]
+color = Color( 0.952941, 0, 0, 1 )
+polygon = PoolVector2Array( 1960, -1620, 1860, -1530, 2610, -920, 2390, -1180 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/RedObstacle4"]
+
+[node name="RedObstacle6" type="RigidBody2D" parent="Platforms" groups=[
+"RedObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/RedObstacle6"]
+color = Color( 0.952941, 0, 0, 1 )
+polygon = PoolVector2Array( -4940, -3680, -5250, -3680, -5330, -3680, -5320, -3650, -4910, -3650, -4890, -3680 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/RedObstacle6"]
+
+[node name="RedObstacle5" type="RigidBody2D" parent="Platforms" groups=[
+"RedObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/RedObstacle5"]
+color = Color( 0.952941, 0, 0, 1 )
+polygon = PoolVector2Array( -5430, -4140, -5390, -4140, -5390, -3850, -5260, -3850, -5250, -3800, -5450, -3800, -5430, -4000 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/RedObstacle5"]
 
 [node name="RedObstacle2" type="RigidBody2D" parent="Platforms" groups=[
 "RedObstacle",
@@ -724,6 +926,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="BlueObstacle11" type="RigidBody2D" parent="Platforms" groups=[
+"BlueObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/BlueObstacle11"]
+color = Color( 0.168627, 0.211765, 0.858824, 1 )
+polygon = PoolVector2Array( -5330, -3750, -4910, -3750, -4980, -3700, -5320, -3700 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/BlueObstacle11"]
+polygon = PoolVector2Array( -140, -1920, -10, -1920, -10, -1890, -140, -1890 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="GreenObstacle" type="RigidBody2D" parent="Platforms" groups=[
 "GreenObstacle",
 ]]
@@ -739,6 +961,64 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/GreenObstacle"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GreenObstacle7" type="RigidBody2D" parent="Platforms" groups=[
+"GreenObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/GreenObstacle7"]
+color = Color( 0.172549, 0.482353, 0.0980392, 1 )
+polygon = PoolVector2Array( -5300, -3650, -4910, -3650, -4870, -3650, -4900, -3620, -5300, -3620 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/GreenObstacle7"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GreenObstacle6" type="RigidBody2D" parent="Platforms" groups=[
+"GreenObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/GreenObstacle6"]
+color = Color( 0.172549, 0.482353, 0.0980392, 1 )
+polygon = PoolVector2Array( -5350, -3800, -4920, -3800, -4960, -3750, -5350, -3750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/GreenObstacle6"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GreenObstacle4" type="RigidBody2D" parent="Platforms" groups=[
+"GreenObstacle",
+]]
+mode = 1
+contact_monitor = true
+script = ExtResource( 8 )
+respawn_time = 30
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/GreenObstacle4"]
+color = Color( 0.172549, 0.482353, 0.0980392, 1 )
+polygon = PoolVector2Array( -1690, -2910, -1650, -2900, -1550, -2920, -1460, -3070, -1440, -3090, -1420, -3070, -1450, -3070, -1500, -2900, -1660, -2870, -1700, -2880 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/GreenObstacle4"]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -844,9 +1124,14 @@ color = Color( 0.407843, 0.396078, 0.388235, 1 )
 polygon = PoolVector2Array( -740, -3030, -660, -3030, -660, -2990, -670, -2990, -670, -2880, -660, -2880, -660, -2850, -740, -2850, -740, -2880, -730, -2880, -730, -2990, -740, -2990 )
 
 [node name="Lightning" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( -100, -520 )
+position = Vector2( 80, -520 )
 rotation = -0.0139626
 scale = Vector2( 1.5, 1 )
+
+[node name="Lightning29" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( -130, 0 )
+rotation = -1.5708
+scale = Vector2( 2, 1 )
 
 [node name="Lightning18" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 1280, -500 )
@@ -864,12 +1149,17 @@ rotation = -1.5708
 scale = Vector2( 1.5, 1 )
 
 [node name="Lightning17" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 1120, -310 )
+position = Vector2( 1120, -313.65 )
+rotation = -1.5708
+scale = Vector2( 1.5, 1 )
+
+[node name="Lightning28" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 1740, -311.825 )
 rotation = -1.5708
 scale = Vector2( 1.5, 1 )
 
 [node name="Lightning2" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( -179, -1160 )
+position = Vector2( 0, -1160 )
 rotation = 1.5708
 scale = Vector2( 3, 2 )
 
@@ -939,6 +1229,10 @@ scale = Vector2( 3, 2 )
 position = Vector2( -5090, -4660 )
 scale = Vector2( 10, 2 )
 
+[node name="Lightning27" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( -4800, -3220 )
+scale = Vector2( 10, 2 )
+
 [node name="Lightning21" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 810, -3250 )
 rotation = -1.5708
@@ -970,7 +1264,7 @@ rotation = -3.28122
 scale = Vector2( 10, 2 )
 
 [node name="collectible" parent="." instance=ExtResource( 9 )]
-position = Vector2( 0, -3380 )
+position = Vector2( 1990, -3030 )
 
 [node name="Orbs_Placement_1" type="Node2D" parent="."]
 position = Vector2( 0, -50 )
@@ -1034,3 +1328,12 @@ visible = false
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Ric" type="Label" parent="."]
+margin_left = -186.0
+margin_top = -409.0
+margin_right = -62.0
+margin_bottom = -387.0
+rect_rotation = 15.77
+custom_fonts/font = ExtResource( 12 )
+text = "Pit of Death"

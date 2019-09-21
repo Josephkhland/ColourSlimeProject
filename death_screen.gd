@@ -1,4 +1,4 @@
-pextends CanvasLayer
+extends CanvasLayer
 
 # Declare member variables here. Examples:
 # var a = 2
