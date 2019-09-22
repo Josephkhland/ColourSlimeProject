@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Levels/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/background.png" type="Texture" id=2]
@@ -6,6 +6,14 @@
 [ext_resource path="res://VolumeControl.gd" type="Script" id=4]
 [ext_resource path="res://menuFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Levels/Options_menu.gd" type="Script" id=6]
+[ext_resource path="res://.import/mini-wakuwaku-maru.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+outline_size = 5
+outline_color = Color( 0.196078, 0.0588235, 0.364706, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
 
 [node name="Menu" type="Control"]
 script = ExtResource( 1 )
@@ -14,17 +22,16 @@ __meta__ = {
 }
 
 [node name="background" type="TextureRect" parent="."]
+margin_top = -70.0
 margin_right = 1030.0
 margin_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 2 )
 expand = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2( 500, 300 )
 __meta__ = {
 "_edit_lock_": true
@@ -47,9 +54,6 @@ margin_left = 400.0
 margin_top = 400.0
 margin_right = 600.0
 margin_bottom = 500.0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 200.0
@@ -99,6 +103,7 @@ __meta__ = {
 }
 
 [node name="Options_menu" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
@@ -106,7 +111,7 @@ script = ExtResource( 6 )
 [node name="Polygon2D" type="Polygon2D" parent="Options_menu"]
 position = Vector2( -200, 153.077 )
 scale = Vector2( 1.33333, 1.07692 )
-color = Color( 0.368627, 0.360784, 0.360784, 1 )
+color = Color( 0.231373, 0.0705882, 0.384314, 1 )
 polygon = PoolVector2Array( 630, 220, 780, 220, 810, 248.999, 810, 323.998, 780, 350, 630, 350, 600, 320.998, 600, 248.999 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="Options_menu"]
@@ -176,6 +181,31 @@ text = "Player Sprite"
 margin_left = 101.0
 margin_right = 125.0
 margin_bottom = 24.0
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2( -200, 213.077 )
+scale = Vector2( 1.33333, 1.07692 )
+color = Color( 0.231373, 0.0705882, 0.384314, 1 )
+polygon = PoolVector2Array( 292.501, -160.715, 307.501, -77.1431, 375.001, -58.5717, 727.502, -77.1431, 802.502, -151.429, 720.002, -188.572 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+position = Vector2( -132.857, 256.923 )
+scale = Vector2( 1.2381, 0.923077 )
+color = Color( 0.584314, 0.584314, 0.584314, 1 )
+polygon = PoolVector2Array( 276.922, -224.167, 284.999, -148.333, 349.614, -126.667, 721.151, -148.333, 785.766, -213.333, 713.074, -256.667 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 75.0
+margin_top = 74.0
+margin_right = 927.0
+margin_bottom = 171.0
+rect_rotation = -4.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.054902, 0.984314, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0.403922, 0.976471, 1 )
+custom_colors/font_color_shadow = Color( 0.87451, 0, 1, 1 )
+text = "Slime Rave"
+align = 1
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Options" to="." method="_on_Options_toggled"]

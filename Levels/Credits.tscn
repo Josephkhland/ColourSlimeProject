@@ -2,7 +2,7 @@
 
 [ext_resource path="res://messages.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menuFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://.import/mini-wakuwaku-maru.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Fonts/mini-wakuwaku.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Levels/credits.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
