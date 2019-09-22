@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Slime"
-run/main_scene="res://Level_-1.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Levels/Menu.tscn"
+config/icon="res://Assets/Images/JamCrystal/JamCrystal0000.png"
 
 [autoload]
 
@@ -27,6 +27,7 @@ RaveMusic="*res://RaveMusic.tscn"
 [display]
 
 window/size/resizable=false
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [input]
