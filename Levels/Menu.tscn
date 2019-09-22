@@ -104,25 +104,25 @@ anchor_bottom = 1.0
 script = ExtResource( 6 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Options_menu"]
-position = Vector2( -200, 240.769 )
-scale = Vector2( 1.33333, 0.769231 )
+position = Vector2( -200, 153.077 )
+scale = Vector2( 1.33333, 1.07692 )
 color = Color( 0.368627, 0.360784, 0.360784, 1 )
 polygon = PoolVector2Array( 630, 220, 780, 220, 810, 248.999, 810, 323.998, 780, 350, 630, 350, 600, 320.998, 600, 248.999 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="Options_menu"]
-position = Vector2( -132.857, 284.615 )
-scale = Vector2( 1.2381, 0.615384 )
+position = Vector2( -132.857, 196.923 )
+scale = Vector2( 1.2381, 0.923077 )
 color = Color( 0.584314, 0.584314, 0.584314, 1 )
 polygon = PoolVector2Array( 630, 220, 780, 220, 810, 248.999, 810, 323.998, 780, 350, 630, 350, 600, 320.998, 600, 248.999 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options_menu"]
-margin_left = 620.0
-margin_top = 425.0
-margin_right = 860.0
-margin_bottom = 493.0
+margin_left = 640.0
+margin_top = 410.0
+margin_right = 840.0
+margin_bottom = 530.0
 
 [node name="Label" type="Label" parent="Options_menu/VBoxContainer"]
-margin_right = 240.0
+margin_right = 200.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 5 )
 text = "Sound Volume"
@@ -130,20 +130,40 @@ align = 1
 
 [node name="HBoxContainer" type="MarginContainer" parent="Options_menu/VBoxContainer"]
 margin_top = 19.0
-margin_right = 240.0
+margin_right = 200.0
 margin_bottom = 35.0
 
 [node name="Sound_Volume" type="HSlider" parent="Options_menu/VBoxContainer/HBoxContainer"]
-margin_right = 240.0
+margin_right = 200.0
+margin_bottom = 16.0
+max_value = 1.0
+step = 0.0
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="Options_menu/VBoxContainer"]
+margin_top = 39.0
+margin_right = 200.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 5 )
+text = "SFX Volume"
+align = 1
+
+[node name="HBoxContainer2" type="MarginContainer" parent="Options_menu/VBoxContainer"]
+margin_top = 58.0
+margin_right = 200.0
+margin_bottom = 74.0
+
+[node name="SFX_Volume" type="HSlider" parent="Options_menu/VBoxContainer/HBoxContainer2"]
+margin_right = 200.0
 margin_bottom = 16.0
 max_value = 1.0
 step = 0.0
 ticks_on_borders = true
 
 [node name="HSplitContainer" type="HBoxContainer" parent="Options_menu/VBoxContainer"]
-margin_top = 39.0
-margin_right = 240.0
-margin_bottom = 63.0
+margin_top = 78.0
+margin_right = 200.0
+margin_bottom = 102.0
 
 [node name="Label" type="Label" parent="Options_menu/VBoxContainer/HSplitContainer"]
 margin_top = 4.0
@@ -161,4 +181,5 @@ margin_bottom = 24.0
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Options" to="." method="_on_Options_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="value_changed" from="Options_menu/VBoxContainer/HBoxContainer/Sound_Volume" to="Options_menu" method="_on_Sound_Volume_value_changed"]
+[connection signal="value_changed" from="Options_menu/VBoxContainer/HBoxContainer2/SFX_Volume" to="Options_menu" method="_on_SFX_Volume_value_changed"]
 [connection signal="toggled" from="Options_menu/VBoxContainer/HSplitContainer/player_sprite_on" to="Options_menu" method="_on_player_sprite_on_toggled"]

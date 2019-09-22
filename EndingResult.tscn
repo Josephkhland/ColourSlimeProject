@@ -1,0 +1,163 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://endingCalculator.gd" type="Script" id=1]
+[ext_resource path="res://messages.tres" type="DynamicFont" id=2]
+[ext_resource path="res://.import/mini-wakuwaku-maru.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 150.333
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 3 )
+
+[node name="EndingCal" type="Area2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light" type="Polygon2D" parent="."]
+position = Vector2( -3.8147e-006, -100 )
+polygon = PoolVector2Array( -40, -110, -30, -80, 0, -70, 30, -80, 40, -110, 30, -140, 0, -150, -30, -140 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -3.8147e-006, -100 )
+polygon = PoolVector2Array( -40, -110, -30, -80, 0, -70, 30, -80, 40, -110, 30, -140, 0, -150, -30, -140 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -3.8147e-006, -100 )
+
+[node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Decor2D" type="Polygon2D" parent="YSort"]
+position = Vector2( 0, -3.05176e-005 )
+color = Color( 0.356863, 0.352941, 0.352941, 1 )
+polygon = PoolVector2Array( -80, 0, 80, 0, 60, -90, 50, -60, 0, -40, -50, -60, -60, -90 )
+
+[node name="Decor2D2" type="Polygon2D" parent="YSort"]
+color = Color( 0.243137, 0.219608, 0.219608, 1 )
+polygon = PoolVector2Array( 0, -40, 0, 0, 80, 0, 60, -90, 50, -60, 0, -40 )
+
+[node name="Decor2D3" type="Polygon2D" parent="YSort"]
+color = Color( 1, 0, 0, 1 )
+polygon = PoolVector2Array( -60, -60, -70, -10, -50, -10, -60, -20 )
+
+[node name="Decor2D6" type="Polygon2D" parent="YSort"]
+color = Color( 0.654902, 0.101961, 0.101961, 1 )
+polygon = PoolVector2Array( -60, -40, -70, -10, -50, -10, -60, -20 )
+
+[node name="Decor2D4" type="Polygon2D" parent="YSort"]
+color = Color( 0, 0, 1, 1 )
+polygon = PoolVector2Array( 60, -60, 70, -10, 50, -10, 60, -20 )
+
+[node name="Decor2D7" type="Polygon2D" parent="YSort"]
+color = Color( 0.00784314, 0.223529, 0.803922, 1 )
+polygon = PoolVector2Array( 60, -40, 70, -10, 50, -10, 60, -20 )
+
+[node name="Decor2D5" type="Polygon2D" parent="YSort"]
+color = Color( 0, 1, 0, 1 )
+polygon = PoolVector2Array( 0, -40, -10, -20, -20, -10, 20, -10, 10, -20, 0, -40 )
+
+[node name="Decor2D8" type="Polygon2D" parent="YSort"]
+color = Color( 0.372549, 0.847059, 0.372549, 1 )
+polygon = PoolVector2Array( -10, -20, -10, -20, -20, -10, 0, -10, 0, -20, 0, -40 )
+
+[node name="Cute_eyes" type="YSort" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="eye_0" type="Polygon2D" parent="Cute_eyes"]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -30, -110, -20, -120, -10, -110, -20.2874, -113.985 )
+
+[node name="eye_1" type="Polygon2D" parent="Cute_eyes"]
+position = Vector2( 40, 0 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -30, -110, -20, -120, -10, -110, -20.2874, -113.985 )
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.76837e-007, -100 )
+shape = SubResource( 2 )
+
+[node name="Message" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Node2D" parent="Message"]
+position = Vector2( 4.76837e-007, 0 )
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TitleBox_0" type="Polygon2D" parent="Message/Title"]
+position = Vector2( 9.09091, 155 )
+scale = Vector2( 1.81818, 1.5 )
+color = Color( 0.247059, 0.239216, 0.239216, 1 )
+polygon = PoolVector2Array( -60, -320, -60, -300, -40, -290, 30, -290, 50, -300, 50, -320, 30, -330, -40, -330 )
+
+[node name="TitleBox_1" type="Polygon2D" parent="Message/Title"]
+position = Vector2( 9.09091, 0 )
+scale = Vector2( 1.81818, 1 )
+color = Color( 0.317647, 0.317647, 0.317647, 1 )
+polygon = PoolVector2Array( -60, -320, -60, -300, -40, -290, 30, -290, 50, -300, 50, -320, 30, -330, -40, -330 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Message/Title"]
+margin_left = -100.0
+margin_top = -330.0
+margin_right = 100.0
+margin_bottom = -290.0
+
+[node name="Label" type="Label" parent="Message/Title/MarginContainer"]
+margin_top = 10.0
+margin_right = 200.0
+margin_bottom = 29.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Ultimate White Slime"
+align = 1
+valign = 1
+
+[node name="Text" type="Node2D" parent="Message"]
+position = Vector2( -3.8147e-006, -3.05176e-005 )
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextBox_0" type="Polygon2D" parent="Message/Text"]
+position = Vector2( -5.12194, 155 )
+scale = Vector2( 1.02439, 1.5 )
+color = Color( 0.247059, 0.239216, 0.239216, 1 )
+polygon = PoolVector2Array( -180, -276.667, 190, -276.667, 210, -263.333, 210, -223.333, 190, -210, -180, -210, -200, -223.333, -200, -263.333 )
+
+[node name="TextBox_1" type="Polygon2D" parent="Message/Text"]
+position = Vector2( -5.12194, 81.9998 )
+scale = Vector2( 1.02439, 1.2 )
+color = Color( 0.317647, 0.317647, 0.317647, 1 )
+polygon = PoolVector2Array( -180, -276.667, 190, -276.667, 210, -263.333, 210, -223.333, 190, -210, -180, -210, -200, -223.333, -200, -263.333 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Message/Text"]
+margin_left = -190.0
+margin_top = -250.0
+margin_right = 190.0
+margin_bottom = -170.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Message/Text/MarginContainer"]
+margin_top = 32.0
+margin_right = 380.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+text = "The color of "
+align = 1
+[connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Node2D_body_exited"]

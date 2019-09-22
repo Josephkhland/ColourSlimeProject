@@ -23,13 +23,13 @@ color = Color( 0.584314, 0.584314, 0.584314, 1 )
 polygon = PoolVector2Array( 630, 220, 780, 220, 810, 248.999, 810, 323.998, 780, 350, 630, 350, 600, 320.998, 600, 248.999 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 620.0
-margin_top = 260.0
-margin_right = 860.0
-margin_bottom = 320.0
+margin_left = 640.0
+margin_top = 230.0
+margin_right = 830.0
+margin_bottom = 362.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 240.0
+margin_right = 190.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 2 )
 text = "Sound Volume"
@@ -37,19 +37,38 @@ align = 1
 
 [node name="HBoxContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 19.0
-margin_right = 240.0
+margin_right = 190.0
 margin_bottom = 35.0
 
 [node name="Sound_Volume" type="HSlider" parent="VBoxContainer/HBoxContainer"]
-margin_right = 240.0
+margin_right = 190.0
+margin_bottom = 16.0
+max_value = 1.0
+step = 0.0
+
+[node name="SFX Volume" type="Label" parent="VBoxContainer"]
+margin_top = 39.0
+margin_right = 190.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 2 )
+text = "SFX Volume"
+align = 1
+
+[node name="HBoxContainer2" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 58.0
+margin_right = 190.0
+margin_bottom = 74.0
+
+[node name="SFX_Volume" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 190.0
 margin_bottom = 16.0
 max_value = 1.0
 step = 0.0
 
 [node name="HSplitContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 39.0
-margin_right = 240.0
-margin_bottom = 63.0
+margin_top = 78.0
+margin_right = 190.0
+margin_bottom = 102.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HSplitContainer"]
 margin_top = 4.0
@@ -64,4 +83,5 @@ margin_left = 101.0
 margin_right = 125.0
 margin_bottom = 24.0
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/Sound_Volume" to="." method="_on_Sound_Volume_value_changed"]
-[connection signal="pressed" from="VBoxContainer/HSplitContainer/player_sprite_on" to="." method="_on_player_sprite_on_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/SFX_Volume" to="." method="_on_SFX_Volume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HSplitContainer/player_sprite_on" to="." method="_on_player_sprite_on_toggled"]

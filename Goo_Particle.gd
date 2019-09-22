@@ -62,6 +62,7 @@ func shoot():
 		scale = scale - 0.2*Vector2(1,1)
 		#orbs_consumed = orbs_consumed -1
 		colorChanges()
+		$Shoot_SFX.play(0.0)
 		emit_signal("shoot_orb",diriShoot,colourSelection)
 
 func _ready():
@@ -105,6 +106,7 @@ func _physics_process(delta):
 		if timeStunned >0.2:
 			not_stunned = 1
 			timeStunned =0
+			$Damaged_SFX.stop()
 	if Input.is_action_just_pressed("cycle_modes"):
 		colourSelection = (colourSelection+1)%3
 		colorChanges()
@@ -127,6 +129,7 @@ func _physics_process(delta):
 		jumped = true
 		onWall = false
 		concec_jumps = concec_jumps+1
+		$Jump_SFX.play(0.0)
 		#switching_launching = true
 	else:
 		velocity.y += delta * GRAVITY
@@ -164,6 +167,7 @@ func on_orb_taken(c,orbName):
 	scale = scale + 0.2*Vector2(1,1)*c.r + 0.2*Vector2(1,1)*c.g + 0.2*Vector2(1,1)*c.b
 	#orbs_consumed= orbs_consumed+1
 	colorChanges()
+	$Pickup_SFX.play(0.0)
 
 func arrow_Colour():
 	if colourSelection ==0:
@@ -175,6 +179,7 @@ func arrow_Colour():
 
 func damaged():
 	if colourSCount[0] >0:
+		$Damaged_SFX.play(0.0)
 		if velocity.x >0:
 			position.x -= 40
 		elif velocity.x <0:
@@ -191,6 +196,7 @@ func death():
 	var tempLoad = load("res://death_screen.tscn").instance()
 	tempLoad.set_name("death_screen")
 	add_child(tempLoad)
+	get_tree().paused = true
 
 
 func respawn():

@@ -11,6 +11,9 @@ func _ready():
 	get_node("VBoxContainer/HBoxContainer/Sound_Volume").value = db2linear(Global.volume_control)
 	get_node("VBoxContainer/HBoxContainer/Sound_Volume").min_value = 0.0001
 	get_node("VBoxContainer/HBoxContainer/Sound_Volume").step = 0.0001
+	get_node("VBoxContainer/HBoxContainer2/SFX_Volume").value = db2linear(Global.sfx_control)
+	get_node("VBoxContainer/HBoxContainer2/SFX_Volume").min_value = 0.0001
+	get_node("VBoxContainer/HBoxContainer2/SFX_Volume").step = 0.0001
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,4 +33,7 @@ func _on_player_sprite_on_toggled(button_pressed):
 
 func _on_Sound_Volume_value_changed(value):
 	Global.volume_control = linear2db(value)
-	print (db2linear(Global.volume_control))
+
+
+func _on_SFX_Volume_value_changed(value):
+	Global.sfx_control = linear2db(value)

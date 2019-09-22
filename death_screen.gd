@@ -16,5 +16,6 @@ func _ready():
 
 func _on_Button_pressed():
 	emit_signal("respawn")
+	get_tree().paused = false
 	self.queue_free()
 	pass # Replace with function body.

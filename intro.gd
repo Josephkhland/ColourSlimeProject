@@ -35,3 +35,6 @@ func _process(delta):
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Levels/Level_1.tscn")
+	Global.totalRed = 0
+	Global.totalGreen = 0
+	Global.totalBlue = 0

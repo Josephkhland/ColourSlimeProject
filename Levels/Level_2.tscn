@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Levels/Level_0.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://messages.tres" type="DynamicFont" id=5]
 [ext_resource path="res://End_stone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/End_stone.gd" type="Script" id=7]
-[ext_resource path="res://Goo_Particle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://EndingResult.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Goo_Particle.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,7 +31,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Platform"]
-polygon = PoolVector2Array( -180, 1350, 210, 1350, 580, 1350, 1000, 1350, 1150, 1210, 1220, 960, 1430, 1520, 1150, 1440, -400, 1440, -580, 1580, -400, 890, -320, 1160 )
+polygon = PoolVector2Array( -750, 1350, 210, 1350, 580, 1350, 1000, 1350, 1150, 1210, 1220, 960, 1430, 1520, 1150, 1440, -400, 1440, -1420, 1440, -1070, 850, -970, 1140 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -209,8 +210,11 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Press W"
 align = 1
 
-[node name="player" parent="." instance=ExtResource( 8 )]
-position = Vector2( -740, 990 )
+[node name="EndingCal" parent="." instance=ExtResource( 8 )]
+position = Vector2( -880, 1350 )
+
+[node name="player" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1420, 850 )
 [connection signal="body_entered" from="End_stone2" to="End_stone2" method="_on_End_stone_body_entered"]
 [connection signal="body_exited" from="End_stone2" to="End_stone2" method="_on_End_stone_body_exited"]
 [connection signal="body_entered" from="End_stone3" to="End_stone3" method="_on_End_stone_body_entered"]

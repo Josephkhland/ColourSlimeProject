@@ -1,15 +1,15 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Goo_Particle.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0026.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0027.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0025.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0000.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0001.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0002.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0005.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0003.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0004.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0006.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0007.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0008.png" type="Texture" id=13]
@@ -35,6 +35,11 @@
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0014.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0015.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Images/JamSlime/JamSlimeSprite0016.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Music/sound_jump.wav" type="AudioStream" id=36]
+[ext_resource path="res://SFX.gd" type="Script" id=37]
+[ext_resource path="res://Assets/Music/sound_shoot.wav" type="AudioStream" id=38]
+[ext_resource path="res://Assets/Music/GrimesDies.ogg" type="AudioStream" id=39]
+[ext_resource path="res://Assets/Music/reverseBleep.wav" type="AudioStream" id=40]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.22402
@@ -82,7 +87,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimationPlayer:playback_speed")
@@ -324,3 +329,19 @@ tree_root = SubResource( 25 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 26 )
+
+[node name="Jump_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+script = ExtResource( 37 )
+
+[node name="Shoot_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
+script = ExtResource( 37 )
+
+[node name="Damaged_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+script = ExtResource( 37 )
+
+[node name="Pickup_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 40 )
+script = ExtResource( 37 )

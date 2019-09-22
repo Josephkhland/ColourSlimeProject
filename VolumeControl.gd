@@ -8,7 +8,6 @@ extends AudioStreamPlayer
 func _ready():
 	if (self.get_name() == "RaveMusic"):
 		var level = get_tree().get_current_scene().filename
-		print(level)
 		if level == "res://Levels/Menu.tscn":
 			autoplay = false
 			playing = false
@@ -22,7 +21,6 @@ func _process(delta):
 	volume_db = Global.volume_control
 	if (self.get_name() == "RaveMusic"):
 		var level = get_tree().get_current_scene().filename
-		print(level)
 		if level == "res://Levels/Menu.tscn":
 			autoplay = false
 			playing = false
